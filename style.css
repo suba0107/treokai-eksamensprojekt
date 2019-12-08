@@ -1,0 +1,102 @@
+/*
+Table of Content
+1.0 - VARIABLES
+2.0 - FONTS
+3.0 - BUTTONS
+4.0 - ANIMATIONER
+5.0 -
+
+*/
+/*-----------1.0|VARIABLES-----------*/
+
+:root {
+    --main-color: #4d9cd0;
+    --secondary-color: #0E7DC7;
+    --tertiary-color: #052D47;
+    --background: #ffffff;
+    --link-color: #052D47;
+    --button-color: #0E7DC7;
+    --footer: #052D47;
+    --header-color:
+}
+
+/*---------2.0|GENERAL & COMMON STYLING--------*/
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+}
+
+.hide {
+    transform: translateX(100%);
+    /*Placerer element 100% til højre så det er "skjult"*/
+    opacity: 0;
+}
+
+/*----------3.0|FONTS-----------*/
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    /*   margin-top: 0;
+    padding-top: 1rem;*/
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+h4 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.5;
+}
+
+a {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--dark-blue);
+}
+
+/*-----------4.0|BUTTONS---------*/
+button {
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    padding: 0.5rem;
+    background-color: var(--button-color);
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #052D47;
+}
+
+/*--------5.0|ANIMATIONER---------*/
+
+/*---------x.x|NAVIGATIONSMENU---------------*/
+/*------------x.x|INDEX.html-------------------*/
+/*---------x.x|SIDE X--------------*/
+/*---------x.x|SIDE X--------------*/
+/*---------x.x|SIDE X--------------*/
+/*---------x.x|SIDE X--------------*/
