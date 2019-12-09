@@ -10,7 +10,7 @@ Table of Content
 /*-----------1.0|VARIABLES-----------*/
 
 :root {
-    --main-color: #4d9cd0;
+    --main-color: #363A84;
     --secondary-color: #0E7DC7;
     --tertiary-color: #052D47;
     --background: #ffffff;
@@ -105,16 +105,13 @@ button:hover {
     top: 0;
 }
 
-.hvid {
-    position: static;
-}
-
 header {
     z-index: 700;
     height: 90px;
     width: 100%;
 }
 
+/*---Burgermenu----*/
 #burgermenu {
     list-style-type: none;
     transition: transform .3s;
@@ -128,9 +125,28 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: var(--blue);
+    background-color: var(--main-color);
     height: 100vh;
 }
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.65rem;
+    margin: 0.3rem 0;
+    padding: 0.3rem 0;
+    line-height: 5rem;
+    font-weight: bold;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+}
+
+nav li {
+    list-style-type: none;
+    text-align: center;
+}
+
+/*----burgermenu-buttons----*/
 
 
 #menuknap {
@@ -141,97 +157,56 @@ header {
     right: 0;
     top: 0;
     position: fixed;
-    padding: 0.5rem;
     cursor: pointer;
     color: #ffffff;
+    background-color: transparent;
 }
 
-header nav a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.65rem;
-    margin: 0.3rem 0;
-    padding: 0.3rem 0;
-    line-height: 5rem;
-    font-weight: lighter;
-    letter-spacing: 0.12rem;
-    text-transform: uppercase;
-}
-
-nav li {
-    list-style-type: none;
-    text-align: right;
-}
-
-nav#dropdown_nav {
-    display: none;
-}
-
-li.filter {
-    display: none;
-}
-
-/*------Burgermenu Animation-----*/
-header nav {
-    overflow: hidden;
-}
-
-.dropdown b {
-    font-size: 3rem;
-}
-
-.dropdown #dropdownbtn {
-    background-color: inherit;
-}
-
-#dropdown_nav {
-    display: none;
-    position: absolute;
-    background-color: var(--transparent-blue);
-    line-height: 2rem;
-    top: 55px;
-}
-
-.dropdown-content a:hover {
-    background-color: #f0f0f0;
-}
-
-.dropdown:hover #dropdown_nav {
-    display: block;
-    /*vis indholdet af dropdown når der bliver hoveret*/
-}
-
-.dropdown:hover .dropdown-content {
-    display: flex;
-    flex-direction: column;
-}
-
-.dropdown-content {
-    padding: 0;
-    padding-top: 13px;
-}
-
-.dropdown-content li {
-    padding: 20px;
-    text-align: left;
-    width: 100%;
-    font-size: 0.8rem;
-    letter-spacing: 0.12rem;
-    text-transform: uppercase;
-    color: white;
-}
-
-.dropdown-content li:hover {
-    background-color: var(--blue);
+/*Animation på burgermenuen er fra https://www.w3schools.com/howto/howto_css_menu_icon.asp*/
+.container {
+    display: inline-block;
     cursor: pointer;
 }
 
-.down {
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+.bar1,
+.bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: var(--main-color);
+    margin: 6px 0;
+    transition: 0.4s;
 }
 
+.bar2 {
+    width: 25px;
+    height: 5px;
+    background-color: var(--main-color);
+    margin: 6px 0 6px 10px;
+    transition: 0.4s;
+
+
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+    background-color: #ffffff;
+}
+
+.change .bar2 {
+    opacity: 0;
+    background-color: #ffffff;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+    background-color: #ffffff;
+}
+
+/*Animation på burgermenuen er fra https://www.w3schools.com/howto/howto_css_menu_icon.asp*/
 /*------------x.x|INDEX.html-------------------*/
+
 /*---------x.x|SIDE X--------------*/
 /*---------x.x|SIDE X--------------*/
 /*---------x.x|SIDE X--------------*/
