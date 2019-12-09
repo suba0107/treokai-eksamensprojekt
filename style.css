@@ -95,6 +95,142 @@ button:hover {
 /*--------5.0|ANIMATIONER---------*/
 
 /*---------x.x|NAVIGATIONSMENU---------------*/
+#logo {
+    width: 230px;
+    height: 34.85px;
+    margin-top: 20px;
+    margin-left: 20px;
+    z-index: 30;
+    cursor: pointer;
+    top: 0;
+}
+
+.hvid {
+    position: static;
+}
+
+header {
+    z-index: 700;
+    height: 90px;
+    width: 100%;
+}
+
+#burgermenu {
+    list-style-type: none;
+    transition: transform .3s;
+    transform-origin: top left;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: 40;
+    padding: 7rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--blue);
+    height: 100vh;
+}
+
+
+#menuknap {
+    display: inline-block;
+    z-index: 100;
+    font-size: 2.3rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    position: fixed;
+    padding: 0.5rem;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+header nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.65rem;
+    margin: 0.3rem 0;
+    padding: 0.3rem 0;
+    line-height: 5rem;
+    font-weight: lighter;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+}
+
+nav li {
+    list-style-type: none;
+    text-align: right;
+}
+
+nav#dropdown_nav {
+    display: none;
+}
+
+li.filter {
+    display: none;
+}
+
+/*------Burgermenu Animation-----*/
+header nav {
+    overflow: hidden;
+}
+
+.dropdown b {
+    font-size: 3rem;
+}
+
+.dropdown #dropdownbtn {
+    background-color: inherit;
+}
+
+#dropdown_nav {
+    display: none;
+    position: absolute;
+    background-color: var(--transparent-blue);
+    line-height: 2rem;
+    top: 55px;
+}
+
+.dropdown-content a:hover {
+    background-color: #f0f0f0;
+}
+
+.dropdown:hover #dropdown_nav {
+    display: block;
+    /*vis indholdet af dropdown når der bliver hoveret*/
+}
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-content {
+    padding: 0;
+    padding-top: 13px;
+}
+
+.dropdown-content li {
+    padding: 20px;
+    text-align: left;
+    width: 100%;
+    font-size: 0.8rem;
+    letter-spacing: 0.12rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.dropdown-content li:hover {
+    background-color: var(--blue);
+    cursor: pointer;
+}
+
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+}
+
 /*------------x.x|INDEX.html-------------------*/
 /*---------x.x|SIDE X--------------*/
 /*---------x.x|SIDE X--------------*/
