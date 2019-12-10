@@ -109,6 +109,7 @@ header {
     z-index: 700;
     height: 90px;
     width: 100%;
+    background-color: transparent;
 }
 
 /*---Burgermenu----*/
@@ -206,8 +207,173 @@ nav li {
 
 /*Animation på burgermenuen er fra https://www.w3schools.com/howto/howto_css_menu_icon.asp*/
 /*------------x.x|INDEX.html-------------------*/
+#scroll-down {
+    position: absolute;
+    right: 0;
+    bottom: 10vw;
+    height: 100px;
+    background-color: white;
+}
+
+#index #splash {
+    background-color: #25392d;
+    height: 100vh;
+    margin-top: -90px;
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#splash img {
+    width: 50vw;
+    height: 39.58vw;
+}
+
+#splash h1 {
+    color: #ffffff;
+}
+
+
+h2,
+.content a {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.content {}
+
+#content1 {
+    display: grid;
+    grid-template-areas: 'image1 image2'
+        'image3 image3';
+    grid-gap: 5px;
+    margin: 10px;
+    justify-content: center;
+
+
+
+}
+
+#content1-image1 {
+    grid-area: image1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content1-image1 img {
+    background-color: lightgreen;
+    width: 100px;
+    height: 100px;
+    margin-left: 30px;
+    margin-top: 80px;
+}
+
+
+#content1-image2 {
+    grid-area: image2;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+#content1-image2 img {
+    background-color: green;
+    width: 180px;
+    height: 180px;
+}
+
+#content1-image3 {
+    grid-area: image3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#content1-image3 img {
+    background-color: darkgreen;
+    width: 370px;
+    height: 200px;
+
+}
+
+#content2 {
+    display: grid;
+    grid-template-areas: 'content2-image1 content2-image2'
+        'content2-image3 content2-image4';
+    grid-gap: 5px;
+    margin: 10px;
+    justify-content: center;
+
+}
+
+#content2-image1 {
+    grid-area: content2-image1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#content2-image1 img {
+    background-color: lightgreen;
+    width: 170px;
+    height: 250px;
+}
+
+
+#content2-image2 {
+    grid-area: content2-image2;
+    display: flex;
+    flex-direction: column;
+}
+
+#content2-image2 img {
+    background-color: green;
+    width: 170px;
+    height: 170px;
+    margin-top: 50px;
+    margin-left: 30px;
+}
+
+#content2-image3 {
+    grid-area: content2-image3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#content2-image3 img {
+    background-color: darkgreen;
+    width: 100px;
+    height: 100px;
+    margin-right: 70px;
+    margin-top: 20px;
+}
+
+
+/*
+#content2-image4 {
+
+    display: flex;
+    align-items: flex-start;
+}*/
+
+#content2-image4 {
+    background-color: #47ac47;
+    grid-area: content2-image4;
+    width: 230px;
+    height: 140px;
+    margin:
+}
+
 
 /*---------x.x|SIDE X--------------*/
 /*---------x.x|SIDE X--------------*/
 /*---------x.x|SIDE X--------------*/
 /*---------x.x|SIDE X--------------*/
+
+/*----------MEDIA QUERIES----------*/
