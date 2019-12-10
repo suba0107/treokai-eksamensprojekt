@@ -34,7 +34,27 @@
     <script src="footer.js"></script>
 
     <script>
-    </script>
-</body>
+        let side;
+        const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/design-selv/29";
 
-</html>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+            const response = await fetch(url);
+            side = await response.json();
+            visIndhold();
+        }
+
+        function visIndhold() {
+            document.querySelector(".custom_h1").textContent = side.overskrift;
+            document.querySelector(".custom_pic").src = side.artikel_billede.guid;
+            document.querySelector(".custom_text").textContent = side.tekst;
+
+
+        }
+    </script>
+</body></html>
