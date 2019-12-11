@@ -6,6 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .custom_content {
+            margin: 0 2.5rem;
+
+        }
+
+        .custom_content button {
+            text-transform: uppercase;
+            border-radius: 5px;
+            padding: 15px 20px;
+            width: 100%;
+            font-size: 1.3rem;
+
+        }
+
+        @media screen and (min-width:1000px) {
+
+            .custom_content {
+                display: grid;
+                grid-template-areas: "left left right right"
+                    "left left bottom bottom";
+                max-width: 1200px;
+                margin: 0 auto;
+
+            }
+
+            .custom_pic {
+                grid-area: left;
+
+            }
+
+            .custom_article {
+                grid-area: bottom;
+                padding-left: 5rem;
+                position: relative;
+            }
+
+            .custom_h1 {
+                grid-area: right;
+                text-align: right;
+                font-size: 3rem;
+                margin-top: 0;
+
+            }
+
+            .custom_text {
+                padding-top: 4rem;
+            }
+
+            .custom_content button {
+                font-size: 1rem;
+                padding: 8px;
+                position: absolute;
+
+
+
+
+            }
+
+            .custom_content .book_button {
+                width: 150px;
+                bottom: 0;
+
+            }
+
+            .custom_content .projects_button {
+                width: 250px;
+                bottom: 0;
+                left: 40%;
+
+
+            }
+
+    </style>
 </head>
 
 <body id="custom">
@@ -18,7 +92,8 @@
         <img class="custom_pic" src="" alt="">
         <article class="custom_article">
             <p class="custom_text"></p>
-            <button></button>
+            <button class="book_button">Book møde</button>
+            <button class="projects_button">Se tidligere projekter</button>
         </article>
 
     </section>
@@ -56,5 +131,8 @@
 
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
