@@ -9,7 +9,7 @@
 </head>
 
 <body id="index">
-    <header>
+    <header id="index-burger">
     </header>
     <section id="splash">
         <img src="assets/logo.svg" alt="Treokais logo">
@@ -17,48 +17,54 @@
         <button id="scroll-down">
         </button>
     </section>
+    <header id="index_horizontal"></header>
+    <main>
+        <section class="content-index">
+            <article id="content1">
+                <a id="content1-image1" href="#">
+                    <img src="" alt="">
+                    <h2></h2>
+                </a>
 
-    <header></header>
-    <section class="content">
-        <article id="content1">
-            <a id="content1-image1" href="#">
-                <img src="" alt="">
-                <h2></h2>
-            </a>
+                <a id="content1-image2" href="#">
+                    <img src="" alt="">
+                    <h2></h2>
+                </a>
+                <a id="content1-image3" href="#">
+                    <img src="" alt="">
+                    <h2></h2>
+                </a>
+                <a id="content1-image4" href="#">
+                    <img src="" alt="">
+                </a>
+                <a id="content1-image5" href="#">
+                    <img src="" alt="">
+                </a>
+            </article>
 
-            <a id="content1-image2" href="#">
-                <img src="" alt="">
-                <h2></h2>
-            </a>
-            <a id="content1-image3" href="#">
-                <img src="" alt="">
-                <h2></h2>
-            </a>
-            <img id="content1-image4" src="" alt="">
-            <img id="content1-image5" src="" alt="">
-        </article>
+            <article id="content2">
+                <a id="content2-image1" href="#">
+                    <img src="" alt="">
+                    <h2></h2>
+                </a>
+                <a id="content2-image2" href="#">
+                    <img src="" alt="">
+                    <h2></h2>
+                </a>
+                <a id="content2-image3" href="#">
+                    <img src="" alt="">
+                    <h2></h2>
+                </a>
+                <a id="content2-image4" href="#">
+                    <img src="" alt="">
+                </a>
 
-        <article id="content2">
-            <a id="content2-image1" href="#">
-                <img src="" alt="">
-                <h2></h2>
-            </a>
-            <a id="content2-image2" href="#">
-                <img src="" alt="">
-                <h2></h2>
-            </a>
-            <a id="content2-image3" href="#">
-                <img src="" alt="">
-                <h2></h2>
-            </a>
-            <img id="content2-image4" src="" alt="">
-            <img id="content2-image5" src="" alt="">
-        </article>
-    </section>
-    <section>
-        <button id="facebook"><img src="" alt></button>
-        <button id="instagram"><img src="" alt></button>
-    </section>
+                <a id="content2-image5" href="#">
+                    <img src="" alt="">
+                </a>
+            </article>
+        </section>
+    </main>
 
     <footer>
     </footer>
@@ -67,5 +73,18 @@
     <script src="footer.js"></script>
 
     <script>
+        window.addEventListener("scroll", function() {
+
+            if (this.pageYOffset > 0) {
+                console.log("hej");
+                document.querySelector("#index-burger").classList.add("hidden");
+            } else {
+                document.querySelector("#index-burger").classList.remove("hidden");
+            }
+
+        });
+
     </script>
-</body></html>
+</body>
+
+</html>
