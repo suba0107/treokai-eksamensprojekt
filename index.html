@@ -12,8 +12,10 @@
     <header id="index-burger">
     </header>
     <section id="splash">
-        <img src="assets/logo.svg" alt="Treokais logo">
+        <img id="splash-image" src="" alt="">
+        <img id="logo-index" src="assets/logo.svg" alt="Treokais logo">
         <h1>TREOKAI</h1>
+        <h2 id="scroll-down-tekst">Scroll ned</h2>
         <button id="scroll-down">
         </button>
     </section>
@@ -21,24 +23,24 @@
     <main>
         <section class="content-index">
             <article id="content1">
-                <a id="content1-image1" href="#">
-                    <img src="" alt="">
+                <a id="content1-image1" href="">
+                    <img class="content1-image1" src="" alt="">
                     <h2></h2>
                 </a>
 
                 <a id="content1-image2" href="#">
-                    <img src="" alt="">
+                    <img class="content1-image2" src="" alt="">
                     <h2></h2>
                 </a>
                 <a id="content1-image3" href="#">
-                    <img src="" alt="">
+                    <img class="content1-image3" src="" alt="">
                     <h2></h2>
                 </a>
                 <a id="content1-image4" href="#">
-                    <img src="" alt="">
+                    <img class="content1-image4" src="" alt="">
                 </a>
                 <a id="content1-image5" href="#">
-                    <img src="" alt="">
+                    <img class="content1-image5" src="" alt="">
                 </a>
             </article>
 
@@ -73,6 +75,63 @@
     <script src="footer.js"></script>
 
     <script>
+        let page;
+        const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/forside/43";
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            getJson();
+        }
+
+        async function getJson() {
+            const response = await fetch(url);
+            page = await response.json();
+            showContent();
+        }
+
+        function showContent() {
+
+            document.querySelector("#splash-image").src = page.splash_image.guid;
+            document.querySelector(".content1-image1").src = page.collection_1[2].guid;
+            document.querySelector(".content1-image2").src = page.collection_1[1].guid;
+            document.querySelector(".content1-image3").src = page.collection_1[3].guid;
+            document.querySelector(".content1-image4").src = page.collection_1[0].guid;
+            document.querySelector(".content1-image5").src = page.collection_1[4].guid;
+            /*document.querySelector(".splash_h1").textContent = side.om_overskrift;
+
+            document.querySelector(".ejer_h4").textContent = side.underoverskrift_1;
+            document.querySelector(".ejer_beskrivelse").textContent = side.rubrik_1_tekst;
+
+            document.querySelector(".fokus_h4").textContent = side.underoverskrift_2;
+            document.querySelector(".fokus_tekst").textContent = side.rubrik_2_tekst;
+
+
+
+            document.querySelector(".butik_billede").src = side.butik_billede.guid;
+            document.querySelector(".om_h2").textContent = side.om_underoverskrift;
+            document.querySelector(".om_tekst").textContent = side.om_tekst;
+
+            document.querySelector(".ejer_h2").textContent = side.ejer_overskrift;
+            document.querySelector(".ejer_tekst").textContent = side.ejer_tekst;
+
+
+            document.querySelector(".noegleord_1").textContent = side.noegleord_1;
+            document.querySelector(".noegleord_2").textContent = side.noegleord_2;
+            document.querySelector(".noegleord_3").textContent = side.noegleord_3;
+
+
+
+*/
+        }
+        async function hentNav() {
+            const urlHeader = "header.html";
+            const responseHeader = await fetch(urlHeader);
+            const includeHeader = await responseHeader.text();
+            document.querySelector("#index_horizontal").innerHTML = includeHeader;
+            document.querySelector("#index-burger").innerHTML = includeHeader;
+            clickBurgermenu();
+
+        }
         window.addEventListener("scroll", function() {
 
             if (this.pageYOffset > 0) {
@@ -83,8 +142,5 @@
             }
 
         });
-
     </script>
-</body>
-
-</html>
+</body></html>
