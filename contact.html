@@ -6,20 +6,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri:600&display=swap" rel="stylesheet">
+    <style>
+        #shop,
+        #gallery {
+            margin: 1rem 2rem
+        }
+
+        .gallery_name {
+            color: var(--main-color);
+            font-weight: bold;
+            margin-bottom: 0;
+        }
+
+        h1 {
+            color: var(--main-color);
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        h3 {
+            color: var(--main-color);
+        }
+
+        .gallery_h2 {
+            font-size: 1.5rem;
+            color: var(--main-color);
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        #contact a {
+            line-height: 2;
+        }
+
+        @media screen and (min-width:1000px) {
+
+            .contact_content {
+                display: grid;
+                grid-template-areas: "top top right"
+                    "bottom bottom right";
+                margin-top: 10rem;
+            }
+
+            .contact_pic {
+                max-width: 40vw;
+            }
+
+
+            #shop {
+                grid-area: top;
+                margin-left: 5rem
+            }
+
+            #gallery {
+                grid-area: bottom;
+                text-align: right;
+
+            }
+
+
+            .contact_pic {
+                grid-area: right;
+                margin-left: 5rem;
+            }
+
+            h1 {
+                font-size: 4rem;
+                margin-top: 0;
+                margin-bottom: 1rem;
+            }
+
+            .gallery_h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
 </head>
 
-<body id="custom">
+<body id="contact">
     <header>
     </header>
-    <section class="content">
-        <img src="" alt="">
+    <section class="contact_content">
+        <img class="contact_pic" src="" alt="vesterbro smykker butik">
         <article id="shop">
-            <h2></h2>
-            <p></p>
+            <h1 class="shop_h1"></h1>
+            <h3 class="studio_name"></h3>
+            <a href="https://goo.gl/maps/vRzeiA2A5rv1fjTUA" class="address"></a>
+            <br>
+            <a href="tel:+4522505655" class="phone"></a>
+            <p class="opening_hours"></p>
         </article>
         <article id="gallery">
-            <h2></h2>
-            <p></p>
+            <h2 class="gallery_h2"></h2>
+            <p class="gallery_name"></p>
+            <a href="http://www.maxgalerie.de/" class="gallery_web"></a>
+            <br>
+            <a href="https://goo.gl/maps/8xjwkp7kiGESDWC79" class="gallery_address"></a>
+
         </article>
     </section>
     <section>
@@ -34,7 +117,36 @@
     <script src="footer.js"></script>
 
     <script>
-    </script>
-</body>
+        let side;
+        const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/kontakt/107";
 
-</html>
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+            const response = await fetch(url);
+            side = await response.json();
+            visIndhold();
+        }
+
+        function visIndhold() {
+            document.querySelector(".contact_pic").src = side.butiksbillede.guid;
+            document.querySelector(".shop_h1").textContent = side.butik_overskrift;
+            document.querySelector(".studio_name").textContent = side.butiksnavn;
+            document.querySelector(".address").textContent = side.butiksadresse;
+            document.querySelector(".phone").textContent = side.tlf_butik;
+            document.querySelector(".opening_hours").textContent = side.aabningstider;
+
+            document.querySelector(".gallery_h2").textContent = side.galleri_overskrift;
+            document.querySelector(".gallery_name").textContent = side.galleri_navn;
+            document.querySelector(".gallery_web").textContent = side.galleri_webadresse;
+            document.querySelector(".gallery_address").textContent = side.galleri_adresse;
+
+
+
+        }
+    </script>
+</body></html>
