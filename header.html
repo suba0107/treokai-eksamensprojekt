@@ -11,12 +11,21 @@
     <div id="burgermenu" class="hide">
         <!--Indholdet af burgermenu. Er som udgangspunkt lukket (.hide) og åbnes med js -->
         <!-- <img id="assets/logo.svg" class="" src="" alt="">-->
+
         <ul id="hovedmenu">
+            <li id="logo-i-menu"><a href="index.html"><img class="menu-logo" src="assets/logo.svg" alt="logo"></a></li>
             <li><a href="index.html">Forside</a></li>
-            <li><a href="smykker.html">Smykker</a></li>
+            <li class="dropdown"><a href="smykker.html">Smykker</a>
+                <ul class="dropdown-content">
+                    <li><a href="kollektioner.html">Kollektioner</a></li>
+                </ul>
+            </li>
             <li><a href="portfolio.html">Portfolio</a></li>
-            <img class="menu-logo" src="assets/logo.svg" alt="logo">
-            <li><a href="custom.html">Design selv</a></li>
+            <li class="dropdown"><a href="smykker.html">Design selv</a>
+                <ul class="dropdown-content">
+                    <li><a href="baeredygtighed.html">Bæredygtighed</a></li>
+                </ul>
+            </li>
             <li><a href="about.html">Om</a></li>
             <li><a href="contact.html">Kontakt</a></li>
         </ul>

@@ -10,6 +10,7 @@ async function hentNav() {
     const responseHeader = await fetch(urlHeader);
     const includeHeader = await responseHeader.text();
     document.querySelector("header").innerHTML = includeHeader;
+
     clickBurgermenu();
 }
 

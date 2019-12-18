@@ -8,7 +8,27 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .custom_content {
-            margin: 0 2.5rem;
+            margin: 5rem 2.5rem;
+
+        }
+
+        .custom_article {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+
+
+        }
+
+        .custom_pic {
+            max-width: 500px;
+        }
+
+        .custom_text {
+            /*    width: 85%;*/
+            max-width: 500px;
+            line-height: 1.5rem;
 
         }
 
@@ -16,65 +36,215 @@
             text-transform: uppercase;
             border-radius: 5px;
             padding: 15px 20px;
+            max-width: 390px;
             width: 100%;
-            font-size: 1.3rem;
+            font-size: 1.1rem;
 
+        }
+
+        :root {
+            --carousel-width: 100vw;
+            /*      --carousel-height: calc(0.7 * var(--carousel-width));*/
+            --carousel-padding: 5px;
+        }
+
+        /* @media (max-width: 479px) {
+            :root {
+                --carousel-width: 95vw;
+            }
+        }*/
+
+        .bwd,
+        .fwd {
+            z-index: 1000;
+            width: 100px;
+            height: 100%;
+
+
+        }
+
+        .fwd p,
+        .bwd p {
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            color: var(--blue);
+            padding-bottom: 0;
+            background-color: rgba(255, 255, 255, 0.81);
+
+
+
+        }
+
+
+
+        .button-wrapper {
+            display: flex;
+            justify-content: space-between;
+            width: 10vw;
+            position: relative;
+
+
+        }
+
+        #slide-show {
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-frame {
+            padding: 10px;
+        }
+
+        .carousel {
+            width: var(--carousel-width);
+            height: var(--carousel-height);
+
+        }
+
+        .scroll {
+            display: flex;
+            align-items: center;
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            height: 300px;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        ul.scroll {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .scroll-item-outer {
+            width: 300px;
+            height: 100%;
+        }
+
+        .scroll-item {
+            width: 300px;
+            height: 300px;
+        }
+
+        .scroll-item img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        @supports (scroll-snap-align: start) {
+
+            /* modern scroll snap points */
+            .scroll {
+                scroll-snap-type: x mandatory;
+            }
+
+            .scroll-item-outer {
+                scroll-snap-align: center;
+            }
+        }
+
+        @supports not (scroll-snap-align: start) {
+
+            /* old scroll snap points spec */
+            .scroll {
+                -webkit-scroll-snap-type: mandatory;
+                scroll-snap-type: mandatory;
+                -webkit-scroll-snap-destination: 0 50%;
+                scroll-snap-destination: 0 50%;
+                -webkit-scroll-snap-points-x: repeat(100%);
+                scroll-snap-points-x: repeat(100%);
+            }
+
+            .scroll-item-outer {
+                scroll-snap-coordinate: 0 0;
+            }
+        }
+
+        /*Karrusel med udgangspunkt i https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/*/
+        footer {
+            width: 100vw;
         }
 
         @media screen and (min-width:1000px) {
 
-            .custom_content {
+
+            .custom_article {
                 display: grid;
-                grid-template-areas: "left left right right"
-                    "left left bottom bottom";
+                grid-template-areas: 'custom-image custom-headline custom-headline'
+                    'custom-image custom-sub-headline custom-sub-headline'
+                    'custom-image custom-text custom-text'
+                    'custom-image custom-button-1 custom-button-2';
                 max-width: 1200px;
-                margin: 0 auto;
+                margin: 12rem auto 0 auto;
+                grid-template-columns: 2fr 1fr 1fr;
+                grid-column-gap: 1rem;
+
 
             }
 
             .custom_pic {
-                grid-area: left;
+                grid-area: custom-image;
 
             }
 
-            .custom_article {
-                grid-area: bottom;
+            /*  .custom_article {
                 padding-left: 5rem;
-                position: relative;
-            }
+                display: block;
+            }*/
 
             .custom_h1 {
-                grid-area: right;
                 text-align: right;
                 font-size: 3rem;
                 margin-top: 0;
+                grid-area: custom-headline;
 
             }
 
+            .custom_content h2 {
+                grid-area: custom-sub-headline;
+                margin-left: 100px;
+            }
+
+            .custom_pic {
+                justify-self: end;
+            }
+
             .custom_text {
-                padding-top: 4rem;
+                grid-area: custom-text;
+                justify-self: end;
             }
 
             .custom_content button {
                 font-size: 1rem;
                 padding: 8px;
-                position: absolute;
-
-
-
+                margin: 0;
 
             }
 
             .custom_content .book_button {
                 width: 150px;
-                bottom: 0;
+                grid-area: custom-button-1;
+                justify-self: end;
 
             }
 
             .custom_content .projects_button {
                 width: 250px;
-                bottom: 0;
-                left: 40%;
+
+
+                grid-area: custom-button-2;
 
 
             }
@@ -88,20 +258,47 @@
 
 
     <section class="custom_content">
-        <h1 class="custom_h1"></h1>
-        <img class="custom_pic" src="" alt="">
+
         <article class="custom_article">
+            <h1 class="custom_h1">Omsmelt og design <br> dit eget smykke</h1>
+            <h2></h2>
+            <img class="custom_pic" src="" alt="">
+
             <p class="custom_text"></p>
             <button class="book_button">Book møde</button>
             <button class="projects_button">Se tidligere projekter</button>
         </article>
-
     </section>
-    <section>
-        <button id="facebook"><img src="" alt></button>
-        <button id="instagram"><img src="" alt></button>
+    <section id="slide-show">
+
+        <div class="carousel-frame">
+
+            <div class="carousel">
+                <ul class="scroll">
+
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="button-wrapper">
+            <button class="bwd">
+                <p>&#9664;</p>
+            </button>
+            <button class="fwd">
+                <p>&#9654;</p>
+            </button>
+        </div>
     </section>
 
+    <template class="scroll-template">
+
+        <li class="scroll-item-outer">
+            <div class="scroll-item">
+                <img class="slide-show-img" src="" alt="">
+            </div>
+        </li>
+    </template>
     <footer>
     </footer>
 
@@ -112,6 +309,9 @@
         let side;
         const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/design-selv/29";
 
+        const dest = document.querySelector(".scroll");
+        const template = document.querySelector(".scroll-template");
+        let images = [];
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
@@ -122,14 +322,34 @@
             const response = await fetch(url);
             side = await response.json();
             visIndhold();
+            klikButtons();
+        }
+
+        function klikButtons() {
+            document.querySelector(".fwd").addEventListener("click", scrollRight);
+        }
+
+        function scrollRight() {
+            document.querySelector(".scroll").offsetRight;
         }
 
         function visIndhold() {
-            document.querySelector(".custom_h1").textContent = side.overskrift;
+            images = side.slide_show;
+            document.querySelector("h2").textContent = side.overskrift;
             document.querySelector(".custom_pic").src = side.artikel_billede.guid;
             document.querySelector(".custom_text").textContent = side.tekst;
 
+            visSlideShow();
+        }
 
+        function visSlideShow() {
+
+            images.forEach(image => {
+                console.log(image);
+                const clone = template.cloneNode(true).content;
+                clone.querySelector("img").src = image.guid;
+                dest.appendChild(clone);
+            });
         }
 
     </script>
