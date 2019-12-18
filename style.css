@@ -754,6 +754,112 @@ h2,
     grid-area: product-price;
 }
 
+
+/*---------x.x|PORTFOLIO X--------------*/
+:root {
+    --carousel-width: 30vw;
+    --carousel-height: calc(1.3 * var(--carousel-width));
+    --carousel-padding: 5px;
+}
+
+
+:root {
+    --carousel-width: 95vw;
+}
+
+
+#portfolio {
+    width: 100%;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.carousel-frame {
+    background: #ffffff;
+    padding: 10px;
+    /*  border-radius: 3px;*/
+    /* width: calc(var(--carousel-width) + (2 * var(--carousel-padding)));
+    height: calc(var(--carousel-height) + (2 * var(--carousel-padding)));*/
+    margin-top: 10px;
+}
+
+.carousel {
+    width: var(--carousel-width);
+    height: var(--carousel-height);
+}
+
+.scroll {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll::-webkit-scrollbar {
+    display: none;
+}
+
+ul.scroll {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.scroll-item-outer {
+    width: 90%;
+    display: flex;
+    height: 100%
+}
+
+.scroll-item {
+    width: var(--carousel-width);
+    height: 100%;
+}
+
+img {
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+}
+
+@supports (scroll-snap-align: start) {
+
+    /* modern scroll snap points */
+    .scroll {
+        scroll-snap-type: x mandatory;
+    }
+
+    .scroll-item-outer {
+        scroll-snap-align: center;
+    }
+}
+
+@supports not (scroll-snap-align: start) {
+
+    /* old scroll snap points spec */
+    .scroll {
+        -webkit-scroll-snap-type: mandatory;
+        scroll-snap-type: mandatory;
+        -webkit-scroll-snap-destination: 0 50%;
+        scroll-snap-destination: 0 50%;
+        -webkit-scroll-snap-points-x: repeat(100%);
+        scroll-snap-points-x: repeat(100%);
+    }
+
+    .scroll-item-outer {
+        scroll-snap-coordinate: 0 0;
+    }
+}
+
+
+
+/*Resources1×0.5×0.25×Rerun*/
+
 /*---------x.x|OM X--------------*/
 #about-content {
     display: grid;

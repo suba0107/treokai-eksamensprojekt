@@ -12,24 +12,21 @@
     <header>
     </header>
     <main>
-        <section class="portfolio">
-
+        <section id="portfolio">
+            <h1>Portfolio</h1>
             <div class="carousel-frame">
-
                 <article class="carousel">
-
                     <ul class="scroll">
                     </ul>
                 </article>
             </div>
         </section>
 
-        <template class="carousel-template">
+        <!--    <template class="carousel-template">
 
-        </template>
+        </template>-->
 
         <template class="item-template">
-            <h1></h1>
             <li class="scroll-item-outer">
 
                 <div class="scroll-item">
@@ -50,7 +47,7 @@
         let karruseller = [];
         let images = [];
         let id;
-        const dest_karrusel = document.querySelector(".portfolio");
+        const dest_karrusel = document.querySelector("h2");
         let dest_items = document.querySelector(".scroll");
         const template_karrusel = document.querySelector(".carousel-frame");
         const template_items = document.querySelector(".item-template");
@@ -83,11 +80,11 @@
             karruseller.forEach(karrusel => {
                 id = karrusel.id;
                 images = karrusel.lookbook_billeder;
-                /* const clone = template_karrusel.cloneNode(true).content;
+                /*    const clone = document.querySelector(".carousel-frame").cloneNode(true).content;
 
-                  clone.querySelector(".carousel").classList.add(`carousel_${karrusel.id}`);
-                 clone.querySelector("h2").textContent = karrusel.title.rendered;
-                 dest_karrusel.appendChild(clone);*/
+                    clone.querySelector(".carousel").classList.add(`carousel_${karrusel.id}`);
+                    clone.querySelector("h2").textContent = karrusel.title.rendered;
+                    document.querySelector("h2").appendChild(clone);*/
                 showItems();
             });
         };
