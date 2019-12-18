@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="custom">
+    <header>
+    </header>
+    <main>
+        <section class="portfolio">
+
+            <div class="carousel-frame">
+
+                <article class="carousel">
+
+                    <ul class="scroll">
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <template class="carousel-template">
+
+        </template>
+
+        <template class="item-template">
+            <h1></h1>
+            <li class="scroll-item-outer">
+
+                <div class="scroll-item">
+                    <img src="" alt="">
+                </div>
+            </li>
+        </template>
+
+
+    </main>
+    <footer>
+    </footer>
+
+    <script src="main-menu.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        let karruseller = [];
+        let images = [];
+        let id;
+        const dest_karrusel = document.querySelector(".portfolio");
+        let dest_items = document.querySelector(".scroll");
+        const template_karrusel = document.querySelector(".carousel-frame");
+        const template_items = document.querySelector(".item-template");
+        /* const urlParams = new URLSearchParams(window.location.search);
+         const id = urlParams.get("id");*/
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+            const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/portfolio"
+            const url_items = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/portfolio/112";
+            let jsonData_karrusel = await fetch(url);
+            let jsonData_items = await fetch(url_items);
+            karruseller = await jsonData_karrusel.json();
+            /*  images = await jsonData_items.json();*/
+            showKarrusel();
+
+            /* clickonFilterknap();
+             klikFilter();
+             klikSort();
+             filtrering();*/
+        }
+
+
+
+        function showKarrusel() {
+            karruseller.forEach(karrusel => {
+                id = karrusel.id;
+                images = karrusel.lookbook_billeder;
+                /* const clone = template_karrusel.cloneNode(true).content;
+
+                  clone.querySelector(".carousel").classList.add(`carousel_${karrusel.id}`);
+                 clone.querySelector("h2").textContent = karrusel.title.rendered;
+                 dest_karrusel.appendChild(clone);*/
+                showItems();
+            });
+        };
+
+        function showItems() {
+
+            images.forEach(image => {
+                console.log(image);
+                const clone_items = template_items.cloneNode(true).content;
+                clone_items.querySelector("img").src = image.guid;
+                dest_items.appendChild(clone_items);
+            });
+        };
+    </script>
+</body></html>

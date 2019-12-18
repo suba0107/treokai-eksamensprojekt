@@ -15,8 +15,9 @@
         <img id="splash-image" src="" alt="">
         <img id="logo-index" src="assets/logo.svg" alt="Treokais logo">
         <h1>TREOKAI</h1>
+        <h2 id="slogan">Håndlavede smykker med livsgaranti</h2>
         <h2 id="scroll-down-tekst">Scroll ned</h2>
-        <button id="scroll-down">
+        <button id="scroll-down" class="bounce"><img src="assets/pil.svg" alt="scroll pil">
         </button>
     </section>
     <header id="index_horizontal"></header>
@@ -46,23 +47,23 @@
 
             <article id="content2">
                 <a id="content2-image1" href="#">
-                    <img src="" alt="">
+                    <img class="content2-image1" src="" alt="">
                     <h2></h2>
                 </a>
                 <a id="content2-image2" href="#">
-                    <img src="" alt="">
+                    <img class="content2-image2" src="" alt="">
                     <h2></h2>
                 </a>
                 <a id="content2-image3" href="#">
-                    <img src="" alt="">
+                    <img class="content2-image3" src="" alt="">
                     <h2></h2>
                 </a>
                 <a id="content2-image4" href="#">
-                    <img src="" alt="">
+                    <img class="content2-image4" src="" alt="">
                 </a>
 
                 <a id="content2-image5" href="#">
-                    <img src="" alt="">
+                    <img class="content2-image5" src="" alt="">
                 </a>
             </article>
         </section>
@@ -81,12 +82,24 @@
 
         function start() {
             getJson();
+
         }
 
         async function getJson() {
             const response = await fetch(url);
             page = await response.json();
             showContent();
+            clickScrollDownButton()
+        }
+
+        function clickScrollDownButton() {
+            document.querySelector("#scroll-down").addEventListener("click", scrollDown);
+            document.querySelector("#scroll-down-tekst").addEventListener("click", scrollDown);
+
+        }
+
+        function scrollDown() {
+            location.href = "#index_horizontal"
         }
 
         function showContent() {
@@ -97,6 +110,11 @@
             document.querySelector(".content1-image3").src = page.collection_1[3].guid;
             document.querySelector(".content1-image4").src = page.collection_1[0].guid;
             document.querySelector(".content1-image5").src = page.collection_1[4].guid;
+            document.querySelector(".content2-image1").src = page.collection_2[2].guid;
+            document.querySelector(".content2-image2").src = page.collection_2[1].guid;
+            document.querySelector(".content2-image3").src = page.collection_2[3].guid;
+            document.querySelector(".content2-image4").src = page.collection_2[0].guid;
+            document.querySelector(".content2-image5").src = page.collection_2[4].guid;
             /*document.querySelector(".splash_h1").textContent = side.om_overskrift;
 
             document.querySelector(".ejer_h4").textContent = side.underoverskrift_1;

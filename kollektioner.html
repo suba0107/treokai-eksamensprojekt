@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="collections">
+    <header>
+    </header>
+    <main>
+
+        <!--   <ul>
+            <li><a href="#">Se alle halskæder</a></li>
+            <li><a href="#">Se alle ringe</a></li>
+            <li><a href="#">Se alle øreringe</a></li>
+            <li><a href="#"></a></li>
+        </ul>-->
+        <h1>Smykker</h1>
+        <section class="collections">
+
+        </section>
+    </main>
+    <footer>
+    </footer>
+    <template class="collection-template">
+        <article class="content">
+            <a class="content-image" href="#">
+                <img src="" alt="">
+                <div class="wrapper">
+                    <h2></h2>
+                    <p></p>
+                </div>
+            </a>
+        </article>
+    </template>
+
+    <script src="main-menu.js"></script>
+    <script src="footer.js"></script>
+
+    <script>
+        let collections = [];
+        const dest = document.querySelector(".collections");
+        const template = document.querySelector(".collection-template");
+        /* const urlParams = new URLSearchParams(window.location.search);
+         const id = urlParams.get("id");*/
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            getJson();
+        }
+
+        async function getJson() {
+            const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/kollektion"
+            let jsonData = await fetch(url);
+            collections = await jsonData.json();
+            showCollections();
+
+        }
+
+        function showCollections() {
+
+            collections.forEach(collection => {
+                const clone = template.cloneNode(true).content;
+                clone.querySelector("img").src = collection.billede.guid;
+                clone.querySelector("h2").textContent = collection.titel;
+                clone.querySelector("p").textContent = collection.beskrivelse;
+
+                dest.appendChild(clone);
+                /*dest.lastElementChild.addEventListener("click", () => {
+                    location.href = `cykel-detaljer.html?cykel= ${bike.title.rendered}&id=${bike.id}`;
+
+                });*/
+            });
+
+
+        }
+    </script>
+</body></html>

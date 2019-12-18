@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="product">
+    <header>
+    </header>
+
+    <nav id="filter">
+        <ul id="type">
+            <li class="filter-type" data-type="Halskæder"><a href="#"> Halskæder</a></li>
+            <li class="filter-type" data-type="Ringe"><a href="#">Ringe</a></li>
+            <li class="filter-type" data-type="Øreringe"><a href="#">Øreringe</a></li>
+        </ul>
+        <ul id="kollektion">
+            <li class="filter-kollektion" data-collection="Harlequin"><a href="#">Harlequin kollektion</a></li>
+
+            <li class="filter-kollektion" data-collection="Serpentine"><a href="#">Serpentine kollektion</a></li>
+
+            <li class="filter-kollektion" data-collection="Tears"><a href="#">TEARS kollektionen</a></li>
+
+            <li class="filter-kollektion" data-collection="Hilal"><a href="#">HILAL kollektionen</a></li>
+        </ul>
+
+    </nav>
+    <section class="product">
+        <article class="single-view">
+            <img id="single-view-image" src="" alt="">
+            <h1></h1>
+            <p class="product-text"></p>
+            <button>Kontakt</button>
+            <h2></h2>
+        </article>
+    </section>
+
+    <footer>
+    </footer>
+
+    <script src="main-menu.js"></script>
+    <script src="footer.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        let page;
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        document.addEventListener("DOMContentLoaded", start);
+        const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/smykke/" + id;
+
+        function start() {
+            getJson();
+
+        }
+
+        async function getJson() {
+            let jsonData = await fetch(url);
+            page = await jsonData.json();
+            showSide();
+
+        }
+
+        function filterTest(a) {
+            return a;
+            console.log("hej");
+        }
+
+
+
+        function showSide() {
+
+            document.querySelector("h1").textContent = page.titel;
+            document.querySelector("#single-view-image").src = page.billede.guid;
+            document.querySelector("h2").textContent = page.pris;
+            document.querySelector("p").textContent = page.beskrivelse;
+        }
+    </script>
+</body></html>

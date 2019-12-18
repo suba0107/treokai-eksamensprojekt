@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body id="smykker">
+    <header>
+    </header>
+
+    <nav id="filter">
+        <ul id="type">
+            <li class="filter-type" data-type="Halskæder"><a href="#"> Halskæder</a></li>
+            <li class="filter-type" data-type="Ringe"><a href="#">Ringe</a></li>
+            <li class="filter-type" data-type="Øreringe"><a href="#">Øreringe</a></li>
+        </ul>
+        <ul id="kollektion">
+            <li class="filter-kollektion" data-collection="Harlequin"><a href="#">Harlequin kollektion</a></li>
+
+            <li class="filter-kollektion" data-collection="Serpentine"><a href="#">Serpentine kollektion</a></li>
+
+            <li class="filter-kollektion" data-collection="Tears"><a href="#">TEARS kollektionen</a></li>
+
+            <li class="filter-kollektion" data-collection="Hilal"><a href="#">HILAL kollektionen</a></li>
+        </ul>
+
+    </nav>
+    <main>
+        <h1>Overskrift</h1>
+        <section class="smykker-section">
+
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <template class="smykker-template">
+
+        <article class="one-product">
+            <img src="" alt="">
+            <h2></h2>
+            <h3></h3>
+            <h3></h3>
+
+        </article>
+
+    </template>
+
+    <script src="main-menu.js"></script>
+    <script src="footer.js"></script>
+
+    <script src="script.js"></script>
+
+
+    <script>
+        let smykker = [];
+        let filterType = "Alle";
+        let filterCollection;
+        let newFilterCollection;
+        let newFilterType;
+
+        console.log(filter);
+        const dest = document.querySelector(".smykker-section");
+        const template = document.querySelector(".smykker-template");
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+        document.addEventListener("DOMContentLoaded", start);
+
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+            const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/smykke"
+            let jsonData = await fetch(url);
+            smykker = await jsonData.json();
+            /*  showSmykker();*/
+            handler();
+            /*    clickonFilterknap();*/
+            klikFilter();
+            /*  klikSort();*/
+
+
+        }
+
+        /*  function klikSort() {
+
+
+              document.querySelector(".l-til-h").addEventListener("click", sortAsc);
+              document.querySelector(".h-til-l").addEventListener("click", sortDesc);
+
+
+          }*/
+
+        /*  function sortDesc() {
+
+            bikes.sort(function(a, b) {
+                return a.pris - b.pris;
+                Kilde: https://stackoverflow.com/questions/979256/sorting-an-array-of-javascript-objects-by-property
+
+
+            });
+            document.querySelector(".l-til-h").classList.remove("valgt");
+            this.classList.add("valgt");
+            showBikes();
+        }
+*/
+        /*    function sortAsc() {
+                bikes.sort(function(a, b) {
+
+                    return b.pris - a.pris;
+                    Kilde: https://stackoverflow.com/questions/979256/sorting-an-array-of-javascript-objects-by-property
+                });*/
+        /*   document.querySelector(".h-til-l").classList.remove("valgt");
+            this.classList.add("valgt");
+            showBikes();
+        }
+
+        function toggleFilterlist() {
+            document.querySelector("#kategorier").classList.toggle("hidden");
+            Toggle filterknap
+        }
+*/
+        function handler() {
+            filterCollection = urlParams.get("kollektion");
+            filterType = urlParams.get("type");
+
+            console.log(filter);
+            if (filterType !== null) {
+                newFilterType = filterType.charAt(0).toUpperCase() + filterType.slice(1);
+                showSmykker();
+            } else {
+                if (filterCollection !== null) {
+                    console.log(filter);
+                    newFilterCollection = filterCollection.charAt(0).toUpperCase() + filterCollection.slice(1);
+                }
+            }
+            showSmykker();
+
+        }
+
+        console.log(filter);
+
+        function showSmykker() {
+            dest.innerHTML = "";
+            smykker.forEach(smykke => {
+                smykker.innerHTML = "";
+                if (filterCollection == undefined && filterType == undefined || newFilterCollection == smykke.kollektion || newFilterType == smykke.smykketype) {
+
+                    /* document.querySelector("h1").textContent = filter;*/
+
+
+                    const clone = template.cloneNode(true).content;
+                    clone.querySelector("h2").textContent = smykke.titel;
+                    /* clone.querySelector(".pris").textContent = `${bike.pris  -.00 } kr`;*/
+                    /* clone.querySelector(".kort").textContent = bike.kort_beskrivelse;*/
+
+                    clone.querySelector("img").src = smykke.billede.guid;
+                    dest.appendChild(clone);
+                    dest.lastElementChild.addEventListener("click", () => {
+                        location.href = `smykke.html?id=${smykke.id}`;
+
+                    });
+                }
+            })
+
+
+        };
+
+        /*       function klikFilter() {
+                   document.querySelectorAll(".filter-type").forEach(elm => {
+                       elm.addEventListener("click", filtrer_type);
+                   })
+                   document.querySelectorAll(".filter-kollektion").forEach(elm => {
+                       elm.addEventListener("click", filtrer_kollektion);
+                   })
+               }*/
+
+        function filtrer_kollektion() {
+            console.log(this.dataset.collection);
+
+            filter = this.dataset.collection;
+            /*tag værdien af dataatribute med typen på den knap, der bliver trykket på*/
+
+
+            /* document.querySelectorAll(".filter").forEach(elm => {
+                 elm.classList.remove("valgt");*/
+            /*       Fjern klassen "valgt fra alle knapper*/
+            smykker.innerHTML = "";
+            showSmykker();
+        };
+
+        function filtrer_type() {
+            console.log(this.dataset.collection);
+
+            filter = this.dataset.type;
+            /*tag værdien af dataatribute med typen på den knap, der bliver trykket på*/
+
+
+            /* document.querySelectorAll(".filter").forEach(elm => {
+                 elm.classList.remove("valgt");*/
+            /*       Fjern klassen "valgt fra alle knapper*/
+            smykker.innerHTML = "";
+            showSmykker();
+        };
+    </script>
+</body></html>
