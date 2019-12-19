@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri|Montserrat|Open+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body id="index">
@@ -26,43 +27,42 @@
             <article id="content1">
                 <a id="content1-image1" href="">
                     <img class="content1-image1" src="" alt="">
-                    <h2></h2>
                 </a>
 
-                <a id="content1-image2" href="#">
+                <a id="content1-image2" href="">
+
                     <img class="content1-image2" src="" alt="">
-                    <h2></h2>
+                    <h2>Harlequin kollektionen</h2>
+
                 </a>
-                <a id="content1-image3" href="#">
+                <a id="content1-image3" href="">
                     <img class="content1-image3" src="" alt="">
-                    <h2></h2>
                 </a>
-                <a id="content1-image4" href="#">
+                <a id="content1-image4" href="">
                     <img class="content1-image4" src="" alt="">
                 </a>
-                <a id="content1-image5" href="#">
+                <a id="content1-image5" href="">
                     <img class="content1-image5" src="" alt="">
                 </a>
             </article>
 
             <article id="content2">
-                <a id="content2-image1" href="#">
+                <a id="content2-image1" href="">
                     <img class="content2-image1" src="" alt="">
-                    <h2></h2>
                 </a>
-                <a id="content2-image2" href="#">
+                <a id="content2-image2" href="">
                     <img class="content2-image2" src="" alt="">
-                    <h2></h2>
+                    <h2>Hilal-kollektionen</h2>
                 </a>
-                <a id="content2-image3" href="#">
+                <a id="content2-image3" href="">
                     <img class="content2-image3" src="" alt="">
-                    <h2></h2>
+
                 </a>
-                <a id="content2-image4" href="#">
+                <a id="content2-image4" href="">
                     <img class="content2-image4" src="" alt="">
                 </a>
 
-                <a id="content2-image5" href="#">
+                <a id="content2-image5" href="">
                     <img class="content2-image5" src="" alt="">
                 </a>
             </article>
@@ -105,6 +105,18 @@
         function showContent() {
 
             document.querySelector("#splash-image").src = page.splash_image.guid;
+            document.querySelector("#content1-image1").href = `smykker.html?kollektion=${page.kollektion1_titel}`;
+            document.querySelector("#content1-image2").href = `smykker.html?kollektion=${page.kollektion1_titel}`;
+            document.querySelector("#content1-image3").href = `smykker.html?kollektion=${page.kollektion1_titel}`;
+            document.querySelector("#content1-image4").href = `smykker.html?kollektion=${page.kollektion1_titel}`;
+            document.querySelector("#content1-image5").href = `smykker.html?kollektion=${page.kollektion1_titel}`;
+
+            document.querySelector("#content2-image1").href = `smykker.html?kollektion=${page.kollektion2_titel}`;
+            document.querySelector("#content2-image2").href = `smykker.html?kollektion=${page.kollektion2_titel}`;
+            document.querySelector("#content2-image3").href = `smykker.html?kollektion=${page.kollektion2_titel}`;
+            document.querySelector("#content2-image4").href = `smykker.html?kollektion=${page.kollektion2_titel}`;
+            document.querySelector("#content2-image5").href = `smykker.html?kollektion=${page.kollektion2_titel}`;
+
 
             document.querySelector(".content1-image1").src = page.collection_1[2].guid;
             document.querySelector(".content1-image2").src = page.collection_1[1].guid;
@@ -161,5 +173,8 @@
             }
 
         });
+
     </script>
-</body></html>
+</body>
+
+</html>

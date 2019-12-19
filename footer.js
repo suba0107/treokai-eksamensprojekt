@@ -1,10 +1,10 @@
  let footer;
- /* const urlVisit = "#"*/
+ const urlVisit = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/kontakt/107"
 
  document.addEventListener("DOMContentLoaded", start);
 
  function start() {
-     /* getJsonFooter();*/
+     getJsonFooter();
      getFooter();
 
  }
@@ -15,16 +15,16 @@
      document.querySelector("footer").innerHTML = includeFooter;
  }
 
- /*async function getJsonFooter() {
+ async function getJsonFooter() {
      let data = await fetch(urlVisit);
      sideFooter = await data.json();
      showFooter();
- }*/
+ }
 
- /* function showFooter() {
-      document.querySelector(".aabningstider").textContent = sideFooter.aabningstider;
-      document.querySelector(".tlf").textContent = `+45 ${sideFooter.telefonnummer}`;
-      document.querySelector(".adresse").textContent = sideFooter.adresse;
-      document.querySelector(".email").textContent = sideFooter.emailadresse;
+ function showFooter() {
+     document.querySelector(".aabningstider").innerHTML = sideFooter.aabningstider;
+     document.querySelector(".tlf").textContent = sideFooter.tlf_butik;
+     document.querySelector(".adresse").innerHTML = sideFooter.butiksadresse;
 
-  }*/
+     document.querySelector(".email").textContent = sideFooter.mail;
+ }

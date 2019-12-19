@@ -11,13 +11,8 @@ Table of Content
 
 :root {
     --main-color: #363A85;
-    --secondary-color: #0E7DC7;
-    --tertiary-color: #052D47;
-    --background: #ffffff;
-    --link-color: #052D47;
-    --button-color: #0E7DC7;
-    --footer: #052D47;
-    --header-color:
+    --secondary-color: #AAAAAA;
+    --footer: #AAAAAA;
 }
 
 
@@ -97,49 +92,74 @@ footer {
 /*----------3.0|FONTS-----------*/
 
 h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-    font-size: 2rem;
-    /*   margin-top: 0;
-    padding-top: 1rem;*/
+    font-family: 'Hindi Siliguri', sans-serif;
+    font-size: 2.5rem;
+    color: var(--main-color);
 }
 
 h2 {
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.3rem;
+    color: var(--main-color);
 }
+
+footer h2 {
+    color: #ffffff;
+}
+
 
 h3 {
     font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 }
 
-h4 {
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
 
 p {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.5;
+    font-size: 1rem;
 }
 
 a {
     font-family: 'Montserrat', sans-serif;
-    color: var(--dark-blue);
+    text-decoration: none;
 }
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+#filter a {
+    color: #000000;
+
+}
+
+#filter a:hover {
+    color: var(--secondary-color);
+}
+
+
 
 /*-----------4.0|BUTTONS---------*/
 button {
     margin: 0.5rem 0.5rem 0.5rem 0;
     padding: 0.5rem;
-    background-color: var(--button-color);
-    border: none;
-    color: #ffffff;
+    background-color: #ffffff;
+    border-color: var(--main-color);
+    color: #000000;
     cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 5px;
+    padding: 15px 20px;
+    width: 100%;
+    max-width: 390px;
+    font-size: 1.1rem;
+    border-style: solid;
 }
 
 button:hover {
-    background-color: #052D47;
+    background-color: var(--main-color);
+    color: #ffffff;
 }
 
 /*--------5.0|ANIMATIONER---------*/
@@ -164,11 +184,17 @@ header {
 
 /*---Burgermenu----*/
 
-.menu-logo {
+.menu-logo1 {
     width: 144px;
     height: 114px;
-    background-color: aquamarine;
     align-self: center;
+    display: inline-block;
+
+}
+
+.menu-logo2 {
+    display: none;
+
 }
 
 #burgermenu {
@@ -216,6 +242,8 @@ header nav a {
     cursor: pointer;
     color: #ffffff;
     background-color: transparent;
+    border: none;
+    width: initial;
 }
 
 /*Animation på burgermenuen er fra https://www.w3schools.com/howto/howto_css_menu_icon.asp*/
@@ -336,7 +364,7 @@ header nav a {
 #scroll-down-tekst {
     writing-mode: vertical-rl;
     position: absolute;
-    right: 1rem;
+    right: 1.5rem;
     bottom: 35%;
     color: #ffffff;
     cursor: pointer;
@@ -347,6 +375,8 @@ header nav a {
     top: 65%;
     right: 1rem;
     background-color: transparent;
+    border: none;
+    width: initial;
 }
 
 #scroll-down img {
@@ -445,6 +475,11 @@ h2,
     width: 45vw;
     height: 45vw;
     object-fit: cover;
+}
+
+#content1-image2 h2 {
+    margin-top: 30px;
+    text-align: right;
 }
 
 #content1-image3 {
@@ -1024,7 +1059,7 @@ h2,
 
 /*---------FOOTER-------------------*/
 footer {
-    background-color: var(--main-color);
+    background-color: var(--footer);
     text-align: center;
     margin-top: 1rem;
     display: flex;
@@ -1036,9 +1071,29 @@ footer {
     margin-bottom: 0;
     width: 100%;
     grid-area: footer;
+
+
+}
+
+#footer-logo {
+    margin-top: 2rem;
+    width: 150px;
+    height: 100%;
+
+}
+
+footer h2 {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 2rem;
 }
 
 footer p {
+    margin-top: 0.5rem;
+
+}
+
+.aabningstider {
     white-space: pre-wrap;
 }
 
@@ -1056,23 +1111,27 @@ footer p {
     text-align: center;
 }
 
-#some-icons {
-    margin: 0;
+#some-icons h2 {
+    margin-bottom: 1rem;
 }
 
-#some-icons img {
-    width: 40px;
-    height: 40px;
-    margin: 0 0.5rem 0.5rem 0.5rem;
+.some-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
-#fb:hover {
-    /*Bruger https://codepen.io/sosuke/pen/Pjoqqp til at lave hex code om til filter*/
-    filter: invert(53%) sepia(30%) saturate(3011%) hue-rotate(200deg) brightness(89%) contrast(82%);
+#some-icons #fb {
+    width: 37px;
+    height: 38px;
+    margin-bottom: 2px;
+    margin-right: 1rem;
 }
 
-#tw:hover {
-    filter: invert(46%) sepia(88%) saturate(294%) hue-rotate(163deg) brightness(113%) contrast(100%);
+#some-icons #insta {
+    width: 49px;
+    height: 49px;
 }
 
 
@@ -1096,7 +1155,6 @@ footer p {
         width: 300px;
 
     }
-
 
     .content:nth-of-type(4n+2) .content-image {
         display: flex;
@@ -1198,6 +1256,11 @@ footer p {
         /*placer menuen normalt*/
     }
 
+    #index-burger#burgermenu {
+        position: fixed;
+        /*placer menuen normalt*/
+    }
+
     header:not(#index-burger) #burgermenu li {
         display: inline-block;
         margin-top: 0;
@@ -1207,12 +1270,58 @@ footer p {
     }
 
     header:not(#index-burger) #hovedmenu {
-        display: grid;
+        display: flex;
         width: 100%;
         justify-content: center;
-        grid-template-columns: repeat(7, 1fr);
-        grid-gap: 1px;
+        align-items: flex-end;
+        margin-bottom: 1rem;
     }
+
+    #logo-i-menu {
+        align-self: flex-start;
+
+    }
+
+
+    header:not(#index-burger) .menu-logo1 {
+        display: none;
+    }
+
+    header:not(#index-burger) .menu-logo2 {
+        width: 144px;
+        height: 114px;
+        align-self: center;
+        display: inline-block;
+    }
+
+    header:not(#index-burger) #hovedmenu :nth-child(1) {
+        order: 2;
+    }
+
+    header:not(#index-burger) #hovedmenu :nth-child(2) {
+        order: 0;
+    }
+
+    header:not(#index-burger) #hovedmenu:nth-child(3) {
+        order: 1;
+    }
+
+    header:not(#index-burger) #hovedmenu:nth-child(4) {
+        order: 2;
+    }
+
+    header:not(#index-burger) #hovedmenu :nth-child(5) {
+        order: 4;
+    }
+
+    header:not(#index-burger) #hovedmenu :nth-child(6) {
+        order: 5;
+    }
+
+    header:not(#index-burger) #hovedmenu :nth-child(7) {
+        order: 6;
+    }
+
 
     /*   .valgt {
         background-color: var(--dark-blue);
@@ -1222,10 +1331,11 @@ footer p {
         background-color: #ffffff;
         width: 100vw;
         padding: 1rem;
-        height: 100px;
-        padding-top: 50px;
+        height: 150px;
+        padding-top: 1rem;
         display: flex;
         justify-content: center;
+
     }
 
     header:not(#index-burger) #burgermenu a {
@@ -1234,11 +1344,12 @@ footer p {
 
     header:not(#index-burger) header {
         z-index: 100;
-        height: 50px;
+
     }
 
     header:not(#index-burger) #hovedmenu {
         width: 100%;
+
     }
 
     header:not(#index-burger) #hovedmenu a {
@@ -1262,9 +1373,8 @@ footer p {
         width: 10%;
         background-color: transparent;
         z-index: 1;
-        margin-top: 1rem;
-        padding: 0;
-        margin-left: 5rem;
+        padding: 1rem;
+        margin-left: 1rem;
         position: absolute;
 
     }
@@ -1301,7 +1411,9 @@ footer p {
         width: 100%;
     }
 
-
+    #logo-i-menu a:hover::after {
+        width: initial;
+    }
 
     /*.change .bar1 {
     -webkit-transform: rotate(-45deg) translate(-9px, 6px);
@@ -1325,7 +1437,10 @@ footer p {
         position: sticky;
         position: -webkit-sticky;
         transition: transform .3s;
-        transform-origin: top left;
+        transform-origin: top right;
+        top: 0;
+        margin-bottom: 1rem;
+
     }
 
     #index_horizontal nav {
@@ -1335,6 +1450,7 @@ footer p {
     #index_horizontal #burgermenu {
         position: relative;
         height: 100%;
+        margin-top: -20px;
     }
 
     .hidden {
@@ -1548,6 +1664,8 @@ footer p {
         background-color: #ffffff;
     }
 
+
+
     #smykker ul {}
 
 
@@ -1561,6 +1679,11 @@ footer p {
         padding: 0;
         justify-content: center;
 
+
+    }
+
+    #smykker main {
+        min-height: calc(100vh - 300px);
     }
 
     .one-product {
@@ -1696,6 +1819,68 @@ footer p {
         text-align: left;
         justify-self: flex-start;
         max-width: 500px;
+    }
+
+    /*-----------footer.html----------*/
+
+    footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        align-items: flex-start;
+        height: 250px;
+    }
+
+
+
+    .group {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        margin: 0;
+        text-align: left;
+        margin-left: 2rem;
+    }
+
+    #adresse-footer {
+        grid-column-start: 3;
+        grid-row-start: 1;
+        text-align: right;
+        margin-right: 2rem;
+    }
+
+
+
+    #aabningstider-footer {
+        grid-column-start: 3;
+        margin: 0;
+        text-align: right;
+        margin-right: 2rem;
+    }
+
+    #footer-logo {
+        grid-column-start: 2;
+        column-span: 1;
+        justify-self: center;
+        width: 100px;
+    }
+
+    #slogan-footer {
+        grid-column-start: 2;
+        grid-row-start: 2;
+        margin-top: 2rem;
+    }
+
+    #some-icons {
+        grid-column-start: 1;
+        grid-row-start: 4;
+        grid-row-start: 2;
+        text-align: left;
+        margin-left: 2rem;
+
+    }
+
+    .some-wrapper {
+        justify-content: flex-start;
     }
 }
 
