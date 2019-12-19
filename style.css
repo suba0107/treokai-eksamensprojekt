@@ -365,14 +365,14 @@ header nav a {
     writing-mode: vertical-rl;
     position: absolute;
     right: 1.5rem;
-    bottom: 35%;
+    bottom: 20%;
     color: #ffffff;
     cursor: pointer;
 }
 
 #scroll-down {
     position: absolute;
-    top: 65%;
+    top: 80%;
     right: 1rem;
     background-color: transparent;
     border: none;
@@ -382,6 +382,28 @@ header nav a {
 #scroll-down img {
     width: 27.17px;
     height: 100px;
+}
+
+.some-wrapper-index {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    top: 350px;
+    left: 10px;
+
+}
+
+#fb-index {
+    width: 37px;
+    height: 38px;
+    margin-bottom: 2px;
+}
+
+#insta-index {
+    width: 49px;
+    height: 49px;
 }
 
 #index #splash {
@@ -411,10 +433,12 @@ header nav a {
     z-index: 100;
 }
 
-#splash h1 {
+#logo-tekst {
     color: #ffffff;
     position: absolute;
     top: 60%;
+    width: 300px;
+    margin-top: 1rem;
 }
 
 #slogan {
