@@ -4,207 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Omsmelt dit smykke hos TREOKAI</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        .custom_content {
-            margin: 5rem 2.5rem;
-
-        }
-
-        .custom_article {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: center;
-
-
-        }
-
-        .custom_pic {
-            max-width: 500px;
-        }
-
-        .custom_text {
-            /*    width: 85%;*/
-            max-width: 500px;
-            line-height: 1.5rem;
-
-        }
-
-
-
-
-        :root {
-            --carousel-width: 100vw;
-            /*      --carousel-height: calc(0.7 * var(--carousel-width));*/
-            --carousel-padding: 5px;
-        }
-
-
-
-        #slide-show {
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .carousel-frame {
-            padding: 10px;
-        }
-
-        .carousel {
-            width: var(--carousel-width);
-            height: var(--carousel-height);
-
-        }
-
-        .scroll {
-            display: flex;
-            align-items: center;
-            overflow-x: auto;
-            overflow-y: hidden;
-            width: 100%;
-            height: 300px;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        ul.scroll {
-            margin: 0;
-            padding: 0;
-            list-style: none;
-        }
-
-        .scroll-item-outer {
-            width: 300px;
-            height: 100%;
-        }
-
-        .scroll-item {
-            width: 300px;
-            height: 300px;
-        }
-
-        .scroll-item img {
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
-
-        .scroll::-webkit-scrollbar {
-            display: none;
-        }
-
-        @supports (scroll-snap-align: start) {
-
-            /* modern scroll snap points */
-            .scroll {
-                scroll-snap-type: x mandatory;
-            }
-
-            .scroll-item-outer {
-                scroll-snap-align: center;
-            }
-        }
-
-        @supports not (scroll-snap-align: start) {
-
-            /* old scroll snap points spec */
-            .scroll {
-                -webkit-scroll-snap-type: mandatory;
-                scroll-snap-type: mandatory;
-                -webkit-scroll-snap-destination: 0 50%;
-                scroll-snap-destination: 0 50%;
-                -webkit-scroll-snap-points-x: repeat(100%);
-                scroll-snap-points-x: repeat(100%);
-            }
-
-            .scroll-item-outer {
-                scroll-snap-coordinate: 0 0;
-            }
-        }
-
-        /*Karrusel med udgangspunkt i https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/*/
-        footer {
-            width: 100vw;
-        }
-
-        @media screen and (min-width:1000px) {
-
-
-            .custom_article {
-                display: grid;
-                grid-template-areas: 'custom-image custom-headline custom-headline'
-                    'custom-image custom-sub-headline custom-sub-headline'
-                    'custom-image custom-text custom-text'
-                    'custom-image custom-button-1 custom-button-2';
-                max-width: 1200px;
-                margin: 12rem auto 0 auto;
-                grid-template-columns: 2fr 1fr 1fr;
-                grid-column-gap: 1rem;
-
-
-            }
-
-            .custom_pic {
-                grid-area: custom-image;
-
-            }
-
-            /*  .custom_article {
-                padding-left: 5rem;
-                display: block;
-            }*/
-
-            .custom_h1 {
-                text-align: right;
-                font-size: 3rem;
-                margin-top: 0;
-                grid-area: custom-headline;
-
-            }
-
-            .custom_content h2 {
-                grid-area: custom-sub-headline;
-                margin-left: 100px;
-            }
-
-            .custom_pic {
-                justify-self: end;
-            }
-
-            .custom_text {
-                grid-area: custom-text;
-                justify-self: end;
-            }
-
-            .custom_content button {
-                font-size: 1rem;
-                padding: 8px;
-                margin: 0;
-
-            }
-
-            .custom_content .book_button {
-                width: 150px;
-                grid-area: custom-button-1;
-                justify-self: end;
-
-            }
-
-            .custom_content .projects_button {
-                width: 250px;
-
-
-                grid-area: custom-button-2;
-
-
-            }
-
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri%7CMontserrat%7COpen+Sans&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
 </head>
 
 <body id="custom">
@@ -270,15 +73,26 @@
             side = await response.json();
             visIndhold();
             klikButtons();
+
         }
+
 
         function klikButtons() {
-            document.querySelector(".fwd").addEventListener("click", scrollRight);
+            document.querySelector(".projects_button").addEventListener("click", scrollDown);
+
+            document.querySelector(".book_button").addEventListener("click", scrollContact);
         }
 
-        function scrollRight() {
-            document.querySelector(".scroll").offsetRight;
+        function scrollDown() {
+            location.href = "#slide-show";
         }
+
+        function scrollContact() {
+            location.href = "contact.html";
+        }
+
+
+
 
         function visIndhold() {
             images = side.slide_show;
@@ -298,8 +112,5 @@
                 dest.appendChild(clone);
             });
         }
-
     </script>
-</body>
-
-</html>
+</body></html>

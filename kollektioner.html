@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>TREOKAIs kollektioner</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri%7CMontserrat%7COpen+Sans&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
 </head>
 
 <body id="collections">
@@ -13,13 +15,7 @@
     </header>
     <main>
 
-        <!--   <ul>
-            <li><a href="#">Se alle halskæder</a></li>
-            <li><a href="#">Se alle ringe</a></li>
-            <li><a href="#">Se alle øreringe</a></li>
-            <li><a href="#"></a></li>
-        </ul>-->
-        <h1>Smykker</h1>
+        <h1>Kollektioner</h1>
         <section class="collections">
 
         </section>
@@ -28,7 +24,7 @@
     </footer>
     <template class="collection-template">
         <article class="content">
-            <a class="content-image" href="#">
+            <a class="content-image" href="">
                 <img src="" alt="">
                 <div class="wrapper">
                     <h2></h2>
@@ -67,6 +63,8 @@
                 const clone = template.cloneNode(true).content;
                 clone.querySelector("img").src = collection.billede.guid;
                 clone.querySelector("h2").textContent = collection.titel;
+                let lowerCase = collection.titel.toLowerCase();
+                clone.querySelector("a").href = `smykker.html?kollektion=${lowerCase}`;
                 clone.querySelector("p").textContent = collection.beskrivelse;
 
                 dest.appendChild(clone);

@@ -4,8 +4,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Om TREOKAI</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri%7CMontserrat%7COpen+Sans&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
 </head>
 
 <body id="about">
@@ -16,18 +18,19 @@
             <h1>Om</h1>
             <article id="about-text-one">
                 <h2>TREOKAI</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, atque quidem officiis nostrum aut quaerat optio corrupti beatae odit aperiam in vel corporis, explicabo animi, veniam ullam assumenda adipisci minus?</p>
+                <p></p>
             </article>
             <img id="image1" src="" alt="">
             <img id="image2" src="" alt="">
             <img id="image3" src="" alt="">
             <article id="about-text-two">
                 <h2>Mai Johannessen</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, harum repellendus at! Ratione optio expedita quae animi, non quam natus dolores error reiciendis qui consequatur, aspernatur ipsum? Distinctio, dolorum, est!</p>
+                <p></p>
             </article>
-            <button>Se Smykker</button>
-            <button>Se LookBook</button>
+            <button id="se-smykker">Se Smykker</button>
+            <button id="se-lookbook">Se Portfolio</button>
         </section>
+
     </main>
     <footer>
     </footer>
@@ -36,5 +39,50 @@
     <script src="footer.js"></script>
 
     <script>
+        let side;
+        const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/om/155";
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJson();
+        }
+
+        async function hentJson() {
+            const response = await fetch(url);
+            side = await response.json();
+            visIndhold();
+            klikButtons();
+
+        }
+
+
+        function klikButtons() {
+            document.querySelector("#se-smykker").addEventListener("click", scrollTo);
+            document.querySelector("#se-lookbook").addEventListener("click", scrollToTwo);
+        }
+
+
+        function scrollTo() {
+            location.href = "portfolio.html";
+        }
+
+
+        function scrollToTwo() {
+
+            location.href = "smykker.html?kollektion=alle&type=alle";
+        }
+
+
+
+        function visIndhold() {
+
+            document.querySelector("#about-text-one p").textContent = side.treokai;
+            document.querySelector("#image1").src = side.billede3.guid;
+            document.querySelector("#image2").src = side.billede2.guid;
+            document.querySelector("#image3").src = side.billede1.guid;
+            document.querySelector("#about-text-two p").textContent = side.mai_johannesen;
+
+
+        }
     </script>
 </body></html>

@@ -14,6 +14,7 @@ async function hentNav() {
     clickBurgermenu();
 }
 
+
 function clickBurgermenu() {
 
     document.querySelector("#menuknap").addEventListener("click", toggleMenu);
@@ -33,6 +34,14 @@ function toggleMenu() {
     } else {
         document.querySelector("#menuknap").classList.add("change");
         /*    Ellers skift tegn til X*/
-    }
+        document.querySelectorAll(".dropdown").forEach(elm => {
+            elm.addEventListener("click", dropDown);
+        })
 
+    }
+}
+
+
+function dropDown() {
+    document.querySelector(".dropdown-content").style.display = "block";
 }

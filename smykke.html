@@ -4,28 +4,29 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Et smykke</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind+Siliguri%7CMontserrat%7COpen+Sans&display=swap" rel="stylesheet">
+    <meta name="robots" content="noindex">
 </head>
 
 <body id="product">
     <header>
     </header>
-
     <nav id="filter">
         <ul id="type">
-            <li class="filter-type" data-type="Halskæder"><a href="#"> Halskæder</a></li>
-            <li class="filter-type" data-type="Ringe"><a href="#">Ringe</a></li>
-            <li class="filter-type" data-type="Øreringe"><a href="#">Øreringe</a></li>
+            <li class="filter-type" data-type="halskæder"><a href="#"> Halskæder</a></li>
+            <li class="filter-type" data-type="ringe"><a href="#">Ringe</a></li>
+            <li class="filter-type" data-type="øreringe"><a href="#">Øreringe</a></li>
         </ul>
         <ul id="kollektion">
-            <li class="filter-kollektion" data-collection="Harlequin"><a href="#">Harlequin kollektion</a></li>
+            <li class="filter-kollektion" data-collection="harlequin"><a href="#">Harlequin kollektion</a></li>
 
-            <li class="filter-kollektion" data-collection="Serpentine"><a href="#">Serpentine kollektion</a></li>
+            <li class="filter-kollektion" data-collection="serpentine"><a href="#">Serpentine kollektion</a></li>
 
-            <li class="filter-kollektion" data-collection="Tears"><a href="#">TEARS kollektionen</a></li>
+            <li class="filter-kollektion" data-collection="tears"><a href="#">TEARS kollektionen</a></li>
 
-            <li class="filter-kollektion" data-collection="Hilal"><a href="#">HILAL kollektionen</a></li>
+            <li class="filter-kollektion" data-collection="hilal"><a href="#">HILAL kollektionen</a></li>
         </ul>
 
     </nav>
@@ -51,11 +52,11 @@
         const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get("id");
         document.addEventListener("DOMContentLoaded", start);
+
         const url = "http://kbdesign.dk/kea/treokai/wordpress/wp-json/wp/v2/smykke/" + id;
 
         function start() {
             getJson();
-
         }
 
         async function getJson() {

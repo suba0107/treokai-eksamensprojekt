@@ -20,8 +20,7 @@
   function filterKlikType() {
 
       filter_et = this.dataset.type;
-      let filter_to = filter_et.toLowerCase();
-      location.href = 'smykker.html?type=' + filter_to;
+      location.href = 'smykker.html?type=' + filter_et;
 
   }
 
@@ -29,7 +28,7 @@
   function filterKlik() {
 
       filter_et = this.dataset.collection;
-      let filter_tre = filter_et.toLowerCase();
-      location.href = 'smykker.html?kollektion=' + filter_tre;
+
+      location.href = 'smykker.html?kollektion=' + filter_et;
 
   }
