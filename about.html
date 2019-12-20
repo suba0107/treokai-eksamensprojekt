@@ -52,26 +52,21 @@
             side = await response.json();
             visIndhold();
             klikButtons();
-
         }
-
 
         function klikButtons() {
             document.querySelector("#se-smykker").addEventListener("click", scrollTo);
             document.querySelector("#se-lookbook").addEventListener("click", scrollToTwo);
         }
 
-
         function scrollTo() {
             location.href = "portfolio.html";
         }
-
 
         function scrollToTwo() {
 
             location.href = "smykker.html?kollektion=alle&type=alle";
         }
-
 
 
         function visIndhold() {
@@ -81,7 +76,6 @@
             document.querySelector("#image2").src = side.billede2.guid;
             document.querySelector("#image3").src = side.billede1.guid;
             document.querySelector("#about-text-two p").textContent = side.mai_johannesen;
-
 
         }
     </script>
