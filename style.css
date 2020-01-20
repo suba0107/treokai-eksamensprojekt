@@ -27,6 +27,7 @@ Table of Content
 /*-----------1.0|VARIABLES-----------*/
 
 :root {
+    /*CSS-variabler*/
     --main-color: #363A85;
     --secondary-color: #AAAAAA;
     --footer: #AAAAAA;
@@ -35,6 +36,7 @@ Table of Content
 /*---------2.0|GENERAL, COMMON STYLING & ANIMATIONS--------*/
 * {
     box-sizing: border-box;
+    /*Lader padding og border være inkluderet i bredde og højden*/
 }
 
 body {
@@ -44,6 +46,7 @@ body {
 
 html {
     scroll-behavior: smooth;
+    /*Får scrool til at være smooth*/
 }
 
 img {
@@ -273,6 +276,7 @@ header nav a {
 
 }
 
+/*Styling når burgermenuen er åben*/
 .change .bar1 {
     -webkit-transform: rotate(-45deg) translate(-9px, 6px);
     transform: rotate(-45deg) translate(-9px, 6px);
@@ -338,9 +342,9 @@ header nav a {
     display: none;
 }
 
-#index-burger .bar1,
-#index-burger .bar2,
-#index-burger .bar3 {
+.index-burger .bar1,
+.index-burger .bar2,
+.index-burger .bar3 {
     background-color: #ffffff;
     transition: 0.4s;
 }
@@ -362,6 +366,7 @@ header nav a {
 
 #scroll-down-tekst {
     writing-mode: vertical-rl;
+    /*Vend teksten vertikalt fra top til bund*/
     position: absolute;
     right: 1.5rem;
     bottom: 20%;
@@ -801,6 +806,7 @@ h2,
 /*---------11.0|PORTFOLIO.html------------*/
 
 @media screen and (max-width: 699px) {
+    /*kun i mobile*/
 
     /*--Med udgangspunkt i https://nolanlawson.com/2019/02/10/building-a-modern-carousel-with-css-scroll-snap-smooth-scrolling-and-pinch-zoom/--*/
     #portfolio {
@@ -832,6 +838,7 @@ h2,
     }
 
     #portfolio .scroll::-webkit-scrollbar {
+        /*fjerner scrollbaren*/
         display: none;
     }
 
@@ -1134,6 +1141,7 @@ footer p {
 
 .aabningstider {
     white-space: pre-wrap;
+    /*Teksten vil bryde, når der er brug for det, eller når der er linjeskift*/
 }
 
 .email {
@@ -1196,6 +1204,7 @@ footer p {
     }
 
     .content:nth-of-type(4n+1) .content-image {
+        /*Vælger hver fjerde element med samme type fra nummer 1*/
         flex-direction: row;
         align-items: flex-start;
     }
@@ -1207,6 +1216,7 @@ footer p {
     }
 
     .content:nth-of-type(4n+2) .content-image {
+        /*Vælger hver fjerde element med samme type fra nummer 2*/
         display: flex;
         margin-top: -5rem;
         margin-bottom: 100px;
@@ -1227,6 +1237,7 @@ footer p {
 
 
     .content:nth-of-type(4n+3) .content-image {
+        /*Vælger hver fjerde element med samme type fra nummer 3*/
         display: flex;
         flex-direction: row;
         margin: 1rem;
@@ -1242,6 +1253,7 @@ footer p {
 
 
     .content:nth-of-type(4n+4) .content-image {
+        /*Vælger hver fjerde element med samme type fra nummer 4*/
         display: flex;
         margin-top: -4rem;
         flex-direction: row-reverse;
@@ -1265,6 +1277,7 @@ footer p {
 /*---17.2|MEDIAQUERIES MIN 700px---*/
 @media screen and (min-width: 700px) {
     .scroll {
+        /*Sætter billederne op i grid i portfolio. I teorien skulle den også sætte det op i grid på "omsmelt"-siden, men da der på den side er blevet defineret med #custom .scroll, at den skal bruge flex, vægter specifikationen højere end her, hvor der blot står ".scroll", og derfor bliver den ikke påvirket*/
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         align-items: center;
@@ -1454,29 +1467,30 @@ footer p {
     @media screen and (min-width:1100px) {
 
         /*------------MENU-----------------*/
-        header:not(#index-burger) #menuknap {
+        header:not(.index-burger) #menuknap {
             display: none;
         }
 
-        header:not(#index-burger) #burgermenu.hide {
+        header:not(.index-burger) #burgermenu.hide {
             transform: translateX(0);
             opacity: 1;
+            transition: .5s opacity;
             /*placer menuen normalt*/
         }
 
-        #index-burger#burgermenu {
+        .index-burger.burgermenu {
             position: fixed;
             /*placer menuen normalt*/
         }
 
-        header:not(#index-burger) #burgermenu li {
+        header:not(.index-burger) #burgermenu li {
             display: inline-block;
             margin-top: 0;
             padding-top: 0;
             /*lad menuen være vandret*/
         }
 
-        header:not(#index-burger) #hovedmenu {
+        header:not(.index-burger) #hovedmenu {
             display: flex;
             width: 100%;
             justify-content: center;
@@ -1490,46 +1504,49 @@ footer p {
 
         }
 
-        header:not(#index-burger) .menu-logo1 {
+        header:not(.index-burger) .menu-logo1 {
             display: none;
         }
 
-        header:not(#index-burger) .menu-logo2 {
+        header:not(.index-burger) .menu-logo2 {
             width: 144px;
             height: 114px;
             align-self: center;
             display: inline-block;
         }
 
-        header:not(#index-burger) #hovedmenu :nth-child(1) {
+        /*Her bliver navigationen placeret i rigtig rækkefølge, så logoet kan være i midten, da html'en er lavet sådan, at logoet er øverst, men vi vil have logoet i midten, når vi er i dekstop, og derfor bruger vi CSS til at ændre.*/
+
+        header:not(.index-burger) #hovedmenu :nth-child(1) {
             order: 2;
+            /*Er ikke sikker på, hvorfor det virker... Teorien er, at man fortæller hvert child, hvor den skal være i rækkefølge. Pr. default er de 0. Dog giver rækkefølgen ikke mening i forhold til, hvad den viser... Hvis to elementer har samme order-nummer, bliver de lagt ind efter hvilken rækkefølge, de kommer i html'en*/
         }
 
-        header:not(#index-burger) #hovedmenu :nth-child(2) {
+        header:not(.index-burger) #hovedmenu :nth-child(2) {
             order: 0;
         }
 
-        header:not(#index-burger) #hovedmenu:nth-child(3) {
+        header:not(.index-burger) #hovedmenu:nth-child(3) {
             order: 1;
         }
 
-        header:not(#index-burger) #hovedmenu:nth-child(4) {
+        header:not(.index-burger) #hovedmenu:nth-child(4) {
             order: 2;
         }
 
-        header:not(#index-burger) #hovedmenu :nth-child(5) {
+        header:not(.index-burger) #hovedmenu :nth-child(5) {
             order: 4;
         }
 
-        header:not(#index-burger) #hovedmenu :nth-child(6) {
+        header:not(.index-burger) #hovedmenu :nth-child(6) {
             order: 5;
         }
 
-        header:not(#index-burger) #hovedmenu :nth-child(7) {
+        header:not(.index-burger) #hovedmenu :nth-child(7) {
             order: 6;
         }
 
-        header:not(#index-burger) #burgermenu {
+        header:not(.index-burger) #burgermenu {
             background-color: #ffffff;
             width: 100vw;
             padding: 1rem;
@@ -1540,21 +1557,21 @@ footer p {
 
         }
 
-        header:not(#index-burger) #burgermenu a {
+        header:not(.index-burger) #burgermenu a {
             color: var(--main-color);
         }
 
-        header:not(#index-burger) header {
+        header:not(.index-burger) header {
             z-index: 100;
 
         }
 
-        header:not(#index-burger) #hovedmenu {
+        header:not(.index-burger) #hovedmenu {
             width: 100%;
 
         }
 
-        header:not(#index-burger) #hovedmenu a {
+        header:not(.index-burger) #hovedmenu a {
             margin: 0 1rem;
             margin-top: 0;
             font-size: 1rem;
@@ -1565,7 +1582,7 @@ footer p {
             line-height: 0;
         }
 
-        header:not(#index-burger) .dropdown-content {
+        header:not(.index-burger) .dropdown-content {
             width: 10%;
             background-color: transparent;
             z-index: 1;
@@ -1574,14 +1591,14 @@ footer p {
             position: absolute;
         }
 
-        header:not(#index-burger) .dropdown-content a {
+        header:not(.index-burger) .dropdown-content a {
             color: var(--main-color);
             text-align: right;
         }
 
-        #index-burger .bar1,
-        #index-burger .bar2,
-        #index-burger .bar3 {
+        .index-burger .bar1,
+        .index-burger .bar2,
+        .index-burger .bar3 {
             background-color: #ffffff;
 
         }
@@ -1593,9 +1610,9 @@ footer p {
         }
 
         #hovedmenu a::after {
+            /*Indsæt "tekst" efter hvert a-element i i hovedmenuen - vi indsætter en farvet streg med transistion, den er som udgangspunkt ikke synlig og har derfor en width på 0*/
             background-color: var(--main-color);
-            content: "";
-            width: 0;
+            content: "";/ width: 0;
             height: 1.5px;
             left: 0;
             bottom: 0;
@@ -1605,6 +1622,7 @@ footer p {
 
         #hovedmenu a:hover::after {
             width: 100%;
+            /*Vis stregen ved hover*/
         }
 
         #logo-i-menu a:hover::after {
@@ -1632,9 +1650,7 @@ footer p {
             margin-top: -20px;
         }
 
-        .hidden {
-            display: none;
-        }
+
 
         /*-----------INDEX.HTML--------------*/
         #index {
@@ -1660,6 +1676,15 @@ footer p {
 
         #index main {
             grid-area: main;
+            /*        transform: translateY(0);*/
+            transition: .5s all;
+
+        }
+
+        .move {
+            margin-bottom: calc(150px + 2rem);
+            /*    transition: .5s all;*/
+            transform: translateY(calc(150px + 2rem));
         }
 
         footer {
@@ -1854,6 +1879,7 @@ footer p {
             max-width: 1000px;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             /*Hvert element skal være mindst 250px. Hver gang der er plads til et element ved siden af med 250px kommer det op ved siden af og udvider rækken*/
+            /*300px ikke 250px...*/
             align-items: center;
             grid-gap: 0;
             padding: 0;
